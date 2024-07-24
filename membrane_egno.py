@@ -9,7 +9,7 @@ from torch import nn, optim
 import json
 import random
 import numpy as np
-from utils import EarlyStopping
+# from utils import EarlyStopping
 
 parser = argparse.ArgumentParser(description='EGNO')
 parser.add_argument('--exp_name', type=str, default='exp_1', metavar='N', help='experiment_name')
@@ -27,7 +27,7 @@ parser.add_argument('--n_layers', type=int, default=4, metavar='N', help='number
 parser.add_argument('--max_training_samples', type=int, default=3000, metavar='N', help='maximum amount of training samples')
 parser.add_argument('--weight_decay', type=float, default=1e-12, metavar='N', help='timing experiment')
 parser.add_argument('--delta_frame', type=int, default=30, help='Number of frames delta.')
-parser.add_argument('--data_dir', type=str, default='', help='Data directory.')
+parser.add_argument('--data_dir', type=str, default='membrane/1e6', help='Data directory.')
 parser.add_argument('--dropout', type=float, default=0.5, help='Dropout rate (1 - keep probability).')
 parser.add_argument("--config_by_file", default=None, nargs="?", const='', type=str)
 parser.add_argument('--lambda_link', type=float, default=1, help='The weight of the linkage loss.')
@@ -109,8 +109,6 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     model_save_path = os.path.join(args.outf, args.exp_name, 'saved_model.pth')
     print(f'Model saved to {model_save_path}')
-
-    early_stopping = EarlyStopping(patience=50, verbose=True, path=model_save_path)
 
     results = {'eval epoch': [], 'val loss': [], 'test loss': [], 'train loss': []}
     best_val_loss = 1e8
@@ -208,8 +206,8 @@ def train(model, optimizer, epoch, loader, backprop=True):
         raise ValueError("No batches were processed. Please check your data loader and dataset.")
 
     prefix = "==> " if not backprop else ""
-    print('%s epoch %d avg loss: %.5f avg lploss: %.5f'
-          % (prefix + loader.dataset.partition, epoch, res['loss'] / res['counter'], res['lp_loss'] / res['counter']))
+    print('%s epoch %d avg loss: %.5f avg lploss: %.5f lr: %.5f'
+          % (prefix + loader.dataset.partition, epoch, res['loss'] / res['counter'], res['lp_loss'] / res['counter'], optimizer.param_groups[0]['lr']))
 
     return res['loss'] / res['counter'], res['lp_loss'] / res['counter']
 

@@ -84,7 +84,11 @@ class MembraneDataset:
         # Read Tecplot data
         obtainDataset = generateDataset(ninit=3000, nend=4000, ngap=50, splitLen=4, folder=self.data_dir)
         nodes, vel, connectivity = obtainDataset.get_output()
+        nodes -= 20
+        connectivity -= 1
+
         print(f"Dataset initialized with {nodes.shape[1]} nodes and {connectivity.shape[0]} elements.")
+        np.save("connectivity.npy",connectivity)
         
         # Process data
         self.process_data(nodes, vel, connectivity)
@@ -98,8 +102,8 @@ class MembraneDataset:
         for conn in connectivity:
             for i in range(len(conn)):
                 for j in range(i + 1, len(conn)):
-                    if conn[i]-1 < N and conn[j]-1 < N:
-                        edges.append((conn[i]-1, conn[j]-1))
+                    if conn[i] < N and conn[j] < N:
+                        edges.append((conn[i], conn[j]))
                     else:
                         print(f"Warning: Edge ({conn[i]}, {conn[j]}) is out of bounds for atom_edges with size {N}")
         

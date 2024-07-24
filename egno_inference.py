@@ -9,7 +9,6 @@ from torch import nn, optim
 import json
 import random
 import numpy as np
-from utils import EarlyStopping
 
 parser = argparse.ArgumentParser(description='EGNO')
 parser.add_argument('--exp_name', type=str, default='exp_1', metavar='N', help='experiment_name')
@@ -107,7 +106,7 @@ def predict(model, loader):
     for batch_idx, data in enumerate(loader):
         print(f"Processing batch {batch_idx + 1}/{len(loader)}")
         batch_size, n_nodes, _ = data[0].size()
-        data = [d.to(device) for d in data]
+        data = [d.to(device) for d in data] #send data to device
 
         for i in [-1, -2]:
             d = data[i].view(batch_size * n_nodes, args.num_timesteps, 3)
@@ -135,7 +134,16 @@ def predict(model, loader):
         else:
             raise Exception("Wrong model")
         
-        predictions.append((loc_pred.detach().cpu().numpy(), vel_pred.cpu().detach().cpu().numpy()))
+        #add reshape loc_pred to loc_end original shape
+        loc_pred = loc_pred.view(args.num_timesteps, -1, 3)
+        loc_pred = loc_pred.transpose(0, 1)
+        loc_pred = loc_pred.view(batch_size, n_nodes, args.num_timesteps, 3)
+
+        vel_pred = vel_pred.view(args.num_timesteps, -1, 3)
+        vel_pred = vel_pred.transpose(0, 1)
+        vel_pred = vel_pred.view(batch_size, n_nodes, args.num_timesteps, 3)
+                
+        predictions.append((loc_pred.detach().cpu().numpy(),vel_pred.detach().cpu().numpy()))
 
     return predictions
 
