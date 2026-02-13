@@ -1,5 +1,23 @@
 [
   {
+    "sim_id"              : "h01_St03",
+    "memb_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h01_St03/membData/",
+    "flow_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h01_St03/",
+    "dt"                  : 0.026,
+    "start"               : 1326,
+    "end"                 : 2652,
+    "gap"                 : 13
+  },
+  {
+    "sim_id"              : "h01_St04",
+    "memb_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h01_St04/membData/",
+    "flow_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h01_St04/",
+    "dt"                  : 0.02,
+    "start"               : 1000,
+    "end"                 : 2000,
+    "gap"                 : 10
+  },
+  {
     "sim_id"              : "h02_St03",
     "memb_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h02_St03/membData/",
     "flow_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h02_St03/",
@@ -15,6 +33,15 @@
     "dt"                  : 0.02,
     "start"               : 1000,
     "end"                 : 2000,
+    "gap"                 : 10
+  },
+  {
+    "sim_id"              : "h03_St03",
+    "memb_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h03_St03/membData/",
+    "flow_file"           : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/h03_St03/",
+    "dt"                  : 0.026,
+    "start"               : 1326,
+    "end"                 : 2652,
     "gap"                 : 10
   },
   {

@@ -14,10 +14,14 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from torch_geometric.data import HeteroData
 import torch.profiler
+from pytorch_memlab import MemReporter
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
 from model.neuralFSI import *
 from dataloader.dataload import *
+
+from torch.fx import symbolic_trace, GraphModule
+import torch.profiler
 
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True,max_split_size_mb:512'
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -29,6 +33,7 @@ def set_seed(seed):
     random.seed(seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
+
 
 def main(checkpoint_path=None):
     set_seed(42)
@@ -49,12 +54,12 @@ def main(checkpoint_path=None):
             'ker_width': 4
         },
         'attn_dim': 24,
-        'nlayers': 4,  # Keep at 4 for now
-        'time_embedding_dim': 8
+        'nlayers': 10,  # Keep at 4 for now
+        'time_embedding_dim': 16
     }
     
     params_training = {
-        'epochs': 1,
+        'epochs': 3,
         'learning_rate': 0.001,
         'scheduler_step': 500,
         'scheduler_gamma': 0.5,
@@ -65,7 +70,9 @@ def main(checkpoint_path=None):
     params_data = {
         'batch_size': 3,
         'ntsteps': 1,
-        'val_split': 0.3
+        'val_split': 0.3,
+        'reload_data': True,
+        'cache_loc': "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/data_train_cache.pt"
     }
 
     train_radius = {
@@ -78,11 +85,14 @@ def main(checkpoint_path=None):
                                          params_data['batch_size'],
                                          params_data['ntsteps'],
                                          params_data['val_split'],
-                                         loadData=True)
+                                         loadData = params_data["reload_data"],
+										 cache_file=params_data["cache_loc"])
     
     print("----Loaded Data----")
 
     model_instance = neuralFSI(params=params_network).to(device)
+
+    reporter = MemReporter(model_instance)
 
     scaler = torch.cuda.amp.GradScaler()
 
@@ -107,7 +117,7 @@ def main(checkpoint_path=None):
     profiler_log_dir = './logs/densenet_profile_detailed'
     os.makedirs(profiler_log_dir, exist_ok=True)
 
-    # Training loop with enhanced DenseNet profiling
+    # Training loop with DenseNet profiling
     for epoch in range(start_epoch, params_training['epochs']):
         model_instance.train()
         train_loss = 0.0
@@ -144,6 +154,9 @@ def main(checkpoint_path=None):
                 torch.nn.utils.clip_grad_norm_(model_instance.parameters(), 1.0)
                 scaler.step(optimizer)
                 scaler.update()
+
+                print(f"\n--- Memory Report after batch {batch_idx} ---")
+                reporter.report()
                 
                 peak_mem = torch.cuda.max_memory_allocated(device)
                 delta_mem = torch.cuda.memory_allocated(device) - start_mem

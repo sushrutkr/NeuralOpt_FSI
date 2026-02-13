@@ -1,0 +1,49 @@
+{
+  "params_network": {
+    "memb_net": {
+      "inNodeFeatures"      : 10,
+      "nNodeFeatEmbedding"  : 32,
+      "outNodeFeatures"     : 10,
+      "nEdgeFeatures"       : 7,
+      "ker_width"           : 8
+    },
+
+    "flow_net": {
+      "inNodeFeatures"      : 4,
+      "nNodeFeatEmbedding"  : 32,
+      "outNodeFeatures"     : 4,
+      "nEdgeFeatures"       : 14,
+      "ker_width"           : 4
+    },
+    
+    "attn_dim"              : 32,
+    "nlayers"               : 10,
+    "time_embedding_dim"    : 16
+  },
+
+  "params_training": {
+    "epochs"                : 200,
+    "learning_rate"         : 0.002,
+    "scheduler_step"        : 100,
+    "scheduler_gamma"       : 0.5,
+    "validation_frequency"  : 10,
+    "save_frequency"        : 100,
+    "freeze_threshold"      : 1e-3,
+    "flow_weight"           : 0.6,
+    "memb_weight"           : 0.4
+  },
+
+  "params_data": {
+    "batch_size"            : 2,
+    "ntsteps"               : 2,
+    "val_split"             : 0.3,
+    "reload_data"           : true,
+    "cache_loc"             : "/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/"
+  },
+  
+  "train_radius": {
+    "radius_flow"           : 0.04,
+    "radius_memb"           : 0.04,
+    "radius_cross"          : 0.04
+  }
+}

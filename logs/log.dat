@@ -1,145 +1,204 @@
-GPUs available to use :  4
-Network Parameters: Network Parameters:Network Parameters:  {'memb_net': {'inNodeFeatures': 10, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 10, 'nEdgeFeatures': 7, 'ker_width': 8}, 'flow_net': {'inNodeFeatures': 4, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 4, 'nEdgeFeatures': 14, 'ker_width': 4}, 'attn_dim': 24, 'nlayers': 4, 'time_embedding_dim': 8}
-Training Parameters:Network Parameters:  {'memb_net': {'inNodeFeatures': 10, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 10, 'nEdgeFeatures': 7, 'ker_width': 8}, 'flow_net': {'inNodeFeatures': 4, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 4, 'nEdgeFeatures': 14, 'ker_width': 4}, 'attn_dim': 24, 'nlayers': 4, 'time_embedding_dim': 8}{'memb_net': {'inNodeFeatures': 10, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 10, 'nEdgeFeatures': 7, 'ker_width': 8}, 'flow_net': {'inNodeFeatures': 4, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 4, 'nEdgeFeatures': 14, 'ker_width': 4}, 'attn_dim': 24, 'nlayers': 4, 'time_embedding_dim': 8}
-
-Training Parameters: Training Parameters:{'epochs': 101, 'learning_rate': 0.004, 'scheduler_step': 500, 'scheduler_gamma': 0.5, 'validation_frequency': 100, 'save_frequency': 100, 'flow_weight': 0.8, 'memb_weight': 0.2} 
-Data Parameters:{'memb_net': {'inNodeFeatures': 10, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 10, 'nEdgeFeatures': 7, 'ker_width': 8}, 'flow_net': {'inNodeFeatures': 4, 'nNodeFeatEmbedding': 24, 'outNodeFeatures': 4, 'nEdgeFeatures': 14, 'ker_width': 4}, 'attn_dim': 24, 'nlayers': 4, 'time_embedding_dim': 8} 
-{'batch_size': 3, 'ntsteps': 1, 'val_split': 0.3}{'epochs': 101, 'learning_rate': 0.004, 'scheduler_step': 500, 'scheduler_gamma': 0.5, 'validation_frequency': 100, 'save_frequency': 100, 'flow_weight': 0.8, 'memb_weight': 0.2}
-Training Parameters:
-Train Radius:{'epochs': 101, 'learning_rate': 0.004, 'scheduler_step': 500, 'scheduler_gamma': 0.5, 'validation_frequency': 100, 'save_frequency': 100, 'flow_weight': 0.8, 'memb_weight': 0.2} Data Parameters: 
- Data Parameters: {'radius_flow': 0.08, 'radius_memb': 0.04, 'radius_cross': 0.04}{'batch_size': 3, 'ntsteps': 1, 'val_split': 0.3}
-
-{'batch_size': 3, 'ntsteps': 1, 'val_split': 0.3}
-Train Radius: Train Radius:{'epochs': 101, 'learning_rate': 0.004, 'scheduler_step': 500, 'scheduler_gamma': 0.5, 'validation_frequency': 100, 'save_frequency': 100, 'flow_weight': 0.8, 'memb_weight': 0.2}Computing global statistics for standardisation 
-
-{'radius_flow': 0.08, 'radius_memb': 0.04, 'radius_cross': 0.04}Data Parameters:
-{'radius_flow': 0.08, 'radius_memb': 0.04, 'radius_cross': 0.04} 
-{'batch_size': 3, 'ntsteps': 1, 'val_split': 0.3}
-Computing global statistics for standardisationTrain Radius:Computing global statistics for standardisation
- 
-{'radius_flow': 0.08, 'radius_memb': 0.04, 'radius_cross': 0.04}
-Computing global statistics for standardisation
-defaultdict(None, {'velocity_scale': 0.5455631017684937, 'pressure_scale': 0.2517735585570336})
-defaultdict(None, {'velocity_scale': 0.5455631017684937, 'pressure_scale': 0.2517735585570336})defaultdict(None, {'velocity_scale': 0.5455631017684937, 'pressure_scale': 0.2517735585570336})
-
-defaultdict(None, {'velocity_scale': 1.6170096499463773, 'pressure_scale': 1.6684879999999993, 'force_scale': 0.0010247231629326, 'pointMass_min': 2.912864897286805e-06, 'pointMass_max': 1.5561310920029288e-05, 'max_coordinate': 21.0164, 'min_coordinate': 19.2997})
-[rank 2] loading cached data…
-defaultdict(None, {'velocity_scale': 0.5455631017684937, 'pressure_scale': 0.2517735585570336})defaultdict(None, {'velocity_scale': 1.6170096499463773, 'pressure_scale': 1.6684879999999993, 'force_scale': 0.0010247231629326, 'pointMass_min': 2.912864897286805e-06, 'pointMass_max': 1.5561310920029288e-05, 'max_coordinate': 21.0164, 'min_coordinate': 19.2997})
-defaultdict(None, {'velocity_scale': 1.6170096499463773, 'pressure_scale': 1.6684879999999993, 'force_scale': 0.0010247231629326, 'pointMass_min': 2.912864897286805e-06, 'pointMass_max': 1.5561310920029288e-05, 'max_coordinate': 21.0164, 'min_coordinate': 19.2997})
-
-[rank 1] loading cached data…
-[rank 3] loading cached data…
-defaultdict(None, {'velocity_scale': 1.6170096499463773, 'pressure_scale': 1.6684879999999993, 'force_scale': 0.0010247231629326, 'pointMass_min': 2.912864897286805e-06, 'pointMass_max': 1.5561310920029288e-05, 'max_coordinate': 21.0164, 'min_coordinate': 19.2997})
-[rank 0] loading cached data…
-100100100100
-
-
-
+GPUs available to use :  2
+Network Parameters:[rank 1] Computing global statistics for standardisation 
+{'memb_net': {'inNodeFeatures': 10, 'nNodeFeatEmbedding': 32, 'outNodeFeatures': 10, 'nEdgeFeatures': 7, 'ker_width': 8}, 'flow_net': {'inNodeFeatures': 4, 'nNodeFeatEmbedding': 32, 'outNodeFeatures': 4, 'nEdgeFeatures': 14, 'ker_width': 4}, 'attn_dim': 32, 'nlayers': 10, 'time_embedding_dim': 16}
+Training Parameters: {'epochs': 200, 'learning_rate': 0.002, 'scheduler_step': 100, 'scheduler_gamma': 0.5, 'validation_frequency': 10, 'save_frequency': 100, 'freeze_threshold': 0.001, 'flow_weight': 0.6, 'memb_weight': 0.4}
+Data Parameters: {'batch_size': 2, 'ntsteps': 2, 'val_split': 0.3, 'reload_data': True, 'cache_loc': '/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/'}
+Train Radius: {'radius_flow': 0.04, 'radius_memb': 0.04, 'radius_cross': 0.04}
+[rank 0] Computing global statistics for standardisation
+[rank 0] Flow stats: defaultdict(None, {'velocity_scale': 0.5455631017684937, 'pressure_scale': 0.2517735585570336})
+[rank 1] Flow stats: defaultdict(None, {'velocity_scale': 0.5455631017684937, 'pressure_scale': 0.2517735585570336})
+[rank 0] Memb stats: defaultdict(None, {'velocity_scale': 1.6170096499463773, 'pressure_scale': 1.6684879999999993, 'force_scale': 0.0010247231629326, 'pointMass_min': 2.912864897286805e-06, 'pointMass_max': 1.5561310920029288e-05, 'max_coordinate': 21.0164, 'min_coordinate': 19.2997})
+[rank 1] Memb stats: defaultdict(None, {'velocity_scale': 1.6170096499463773, 'pressure_scale': 1.6684879999999993, 'force_scale': 0.0010247231629326, 'pointMass_min': 2.912864897286805e-06, 'pointMass_max': 1.5561310920029288e-05, 'max_coordinate': 21.0164, 'min_coordinate': 19.2997})
+[rank 0] Using cached shards from disk (no sharding performed).
+[rank 0] Loading local train shard from /home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/train_shard_0.pt
+[rank 1] Loading local train shard from /home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/train_shard_1.pt
+[rank 0] Loading local val shard from /home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/val_shard_0.pt
+[rank 1] Loading local val shard from /home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/val_shard_1.pt
+[rank 0] Done with data loading, train batches: 185, val batches: 78
 [rank 0] data loaded
-[rank 3] data loaded
+[rank 1] Done with data loading, train batches: 185, val batches: 78
 [rank 1] data loaded
-[rank 2] data loaded
-Epoch 1/101, Train Loss: 0.210942, Flow loss: 0.230044, Memb loss: 0.155166, lr: 0.000164
-Epoch 2/101, Train Loss: 0.189499, Flow loss: 0.221653, Memb loss: 0.171153, lr: 0.000175
-Epoch 3/101, Train Loss: 0.157444, Flow loss: 0.198618, Memb loss: 0.183133, lr: 0.000194
-Epoch 4/101, Train Loss: 0.140798, Flow loss: 0.165775, Memb loss: 0.157192, lr: 0.000220
-Epoch 5/101, Train Loss: 0.204945, Flow loss: 0.152616, Memb loss: 0.170756, lr: 0.000253
-Epoch 6/101, Train Loss: 0.149688, Flow loss: 0.144801, Memb loss: 0.190222, lr: 0.000293
-Epoch 7/101, Train Loss: 0.106133, Flow loss: 0.122139, Memb loss: 0.144650, lr: 0.000340
-Epoch 8/101, Train Loss: 0.096242, Flow loss: 0.115577, Memb loss: 0.177724, lr: 0.000394
-Epoch 9/101, Train Loss: 0.115616, Flow loss: 0.098194, Memb loss: 0.147920, lr: 0.000455
-Epoch 10/101, Train Loss: 0.094455, Flow loss: 0.092192, Memb loss: 0.141969, lr: 0.000522
-Epoch 11/101, Train Loss: 0.095313, Flow loss: 0.084528, Memb loss: 0.119311, lr: 0.000595
-Epoch 12/101, Train Loss: 0.077039, Flow loss: 0.082660, Memb loss: 0.134851, lr: 0.000674
-Epoch 13/101, Train Loss: 0.070947, Flow loss: 0.078228, Memb loss: 0.145992, lr: 0.000758
-Epoch 14/101, Train Loss: 0.097302, Flow loss: 0.065718, Memb loss: 0.111753, lr: 0.000848
-Epoch 15/101, Train Loss: 0.077309, Flow loss: 0.057426, Memb loss: 0.087848, lr: 0.000942
-Epoch 16/101, Train Loss: 0.067244, Flow loss: 0.052497, Memb loss: 0.097627, lr: 0.001040
-Epoch 17/101, Train Loss: 0.050487, Flow loss: 0.047782, Memb loss: 0.108591, lr: 0.001143
-Epoch 18/101, Train Loss: 0.050611, Flow loss: 0.044184, Memb loss: 0.092933, lr: 0.001250
-Epoch 19/101, Train Loss: 0.034809, Flow loss: 0.037765, Memb loss: 0.076087, lr: 0.001359
-Epoch 20/101, Train Loss: 0.033858, Flow loss: 0.034772, Memb loss: 0.057532, lr: 0.001472
-Epoch 21/101, Train Loss: 0.032003, Flow loss: 0.032500, Memb loss: 0.050110, lr: 0.001586
-Epoch 22/101, Train Loss: 0.030109, Flow loss: 0.028006, Memb loss: 0.041708, lr: 0.001703
-Epoch 23/101, Train Loss: 0.027196, Flow loss: 0.026221, Memb loss: 0.037223, lr: 0.001821
-Epoch 24/101, Train Loss: 0.026968, Flow loss: 0.024590, Memb loss: 0.033149, lr: 0.001940
-Epoch 25/101, Train Loss: 0.022264, Flow loss: 0.021463, Memb loss: 0.030587, lr: 0.002060
-Epoch 26/101, Train Loss: 0.018705, Flow loss: 0.020139, Memb loss: 0.024755, lr: 0.002180
-Epoch 27/101, Train Loss: 0.015830, Flow loss: 0.019561, Memb loss: 0.021877, lr: 0.002299
-Epoch 28/101, Train Loss: 0.017807, Flow loss: 0.018423, Memb loss: 0.017526, lr: 0.002418
-Epoch 29/101, Train Loss: 0.019498, Flow loss: 0.015968, Memb loss: 0.014954, lr: 0.002535
-Epoch 30/101, Train Loss: 0.014058, Flow loss: 0.014737, Memb loss: 0.013934, lr: 0.002650
-Epoch 31/101, Train Loss: 0.011172, Flow loss: 0.014610, Memb loss: 0.011881, lr: 0.002764
-Epoch 32/101, Train Loss: 0.015640, Flow loss: 0.015529, Memb loss: 0.010552, lr: 0.002874
-Epoch 33/101, Train Loss: 0.021007, Flow loss: 0.015730, Memb loss: 0.009441, lr: 0.002982
-Epoch 34/101, Train Loss: 0.015875, Flow loss: 0.015144, Memb loss: 0.007920, lr: 0.003086
-Epoch 35/101, Train Loss: 0.015739, Flow loss: 0.015062, Memb loss: 0.007198, lr: 0.003186
-Epoch 36/101, Train Loss: 0.014578, Flow loss: 0.014421, Memb loss: 0.006751, lr: 0.003282
-Epoch 37/101, Train Loss: 0.012217, Flow loss: 0.015270, Memb loss: 0.006192, lr: 0.003373
-Epoch 38/101, Train Loss: 0.016563, Flow loss: 0.017354, Memb loss: 0.005709, lr: 0.003459
-Epoch 39/101, Train Loss: 0.014101, Flow loss: 0.015764, Memb loss: 0.004879, lr: 0.003539
-Epoch 40/101, Train Loss: 0.016735, Flow loss: 0.016507, Memb loss: 0.004265, lr: 0.003614
-Epoch 41/101, Train Loss: 0.010520, Flow loss: 0.014385, Memb loss: 0.003620, lr: 0.003683
-Epoch 42/101, Train Loss: 0.012734, Flow loss: 0.014592, Memb loss: 0.003055, lr: 0.003746
-Epoch 43/101, Train Loss: 0.010431, Flow loss: 0.012894, Memb loss: 0.002716, lr: 0.003802
-Epoch 44/101, Train Loss: 0.012459, Flow loss: 0.013497, Memb loss: 0.002241, lr: 0.003852
-Epoch 45/101, Train Loss: 0.012793, Flow loss: 0.012703, Memb loss: 0.001574, lr: 0.003895
-Epoch 46/101, Train Loss: 0.011302, Flow loss: 0.014054, Memb loss: 0.001308, lr: 0.003930
-Epoch 47/101, Train Loss: 0.010737, Flow loss: 0.012425, Memb loss: 0.001263, lr: 0.003959
-Epoch 48/101, Train Loss: 0.008877, Flow loss: 0.012599, Memb loss: 0.001030, lr: 0.003980
-Epoch 49/101, Train Loss: 0.011203, Flow loss: 0.015102, Memb loss: 0.001151, lr: 0.003993
-Epoch 50/101, Train Loss: 0.010120, Flow loss: 0.014845, Memb loss: 0.000873, lr: 0.004000
-Epoch 51/101, Train Loss: 0.011711, Flow loss: 0.014180, Memb loss: 0.000917, lr: 0.003998
-Epoch 52/101, Train Loss: 0.009742, Flow loss: 0.013841, Memb loss: 0.000734, lr: 0.003989
-Epoch 53/101, Train Loss: 0.009653, Flow loss: 0.014495, Memb loss: 0.000701, lr: 0.003973
-Epoch 54/101, Train Loss: 0.011980, Flow loss: 0.013840, Memb loss: 0.000716, lr: 0.003948
-Epoch 55/101, Train Loss: 0.010876, Flow loss: 0.012785, Memb loss: 0.000573, lr: 0.003916
-Epoch 56/101, Train Loss: 0.007330, Flow loss: 0.010292, Memb loss: 0.000570, lr: 0.003877
-Epoch 57/101, Train Loss: 0.018257, Flow loss: 0.014811, Memb loss: 0.000740, lr: 0.003830
-Epoch 58/101, Train Loss: 0.007504, Flow loss: 0.012622, Memb loss: 0.000563, lr: 0.003777
-Epoch 59/101, Train Loss: 0.009803, Flow loss: 0.012962, Memb loss: 0.000683, lr: 0.003716
-Epoch 60/101, Train Loss: 0.006704, Flow loss: 0.012765, Memb loss: 0.000513, lr: 0.003649
-Epoch 61/101, Train Loss: 0.010060, Flow loss: 0.013050, Memb loss: 0.000541, lr: 0.003576
-Epoch 62/101, Train Loss: 0.008463, Flow loss: 0.013736, Memb loss: 0.000588, lr: 0.003496
-Epoch 63/101, Train Loss: 0.013234, Flow loss: 0.015285, Memb loss: 0.000519, lr: 0.003411
-Epoch 64/101, Train Loss: 0.005854, Flow loss: 0.011314, Memb loss: 0.000492, lr: 0.003320
-Epoch 65/101, Train Loss: 0.011779, Flow loss: 0.012190, Memb loss: 0.000444, lr: 0.003224
-Epoch 66/101, Train Loss: 0.013124, Flow loss: 0.011795, Memb loss: 0.000472, lr: 0.003123
-Epoch 67/101, Train Loss: 0.007549, Flow loss: 0.012890, Memb loss: 0.000486, lr: 0.003018
-Epoch 68/101, Train Loss: 0.011236, Flow loss: 0.011941, Memb loss: 0.000488, lr: 0.002909
-Epoch 69/101, Train Loss: 0.013826, Flow loss: 0.012227, Memb loss: 0.000449, lr: 0.002796
-Epoch 70/101, Train Loss: 0.012514, Flow loss: 0.012120, Memb loss: 0.000432, lr: 0.002681
-Epoch 71/101, Train Loss: 0.006935, Flow loss: 0.011258, Memb loss: 0.000352, lr: 0.002563
-Epoch 72/101, Train Loss: 0.007832, Flow loss: 0.012258, Memb loss: 0.000411, lr: 0.002442
-Epoch 73/101, Train Loss: 0.008638, Flow loss: 0.013446, Memb loss: 0.000365, lr: 0.002320
-Epoch 74/101, Train Loss: 0.010481, Flow loss: 0.012247, Memb loss: 0.000316, lr: 0.002197
-Epoch 75/101, Train Loss: 0.009668, Flow loss: 0.011393, Memb loss: 0.000308, lr: 0.002073
-Epoch 76/101, Train Loss: 0.010823, Flow loss: 0.013724, Memb loss: 0.000379, lr: 0.001948
-Epoch 77/101, Train Loss: 0.008518, Flow loss: 0.010864, Memb loss: 0.000299, lr: 0.001824
-Epoch 78/101, Train Loss: 0.007665, Flow loss: 0.013220, Memb loss: 0.000317, lr: 0.001700
-Epoch 79/101, Train Loss: 0.009629, Flow loss: 0.014037, Memb loss: 0.000325, lr: 0.001578
-Epoch 80/101, Train Loss: 0.005731, Flow loss: 0.011700, Memb loss: 0.000294, lr: 0.001457
-Epoch 81/101, Train Loss: 0.005469, Flow loss: 0.011670, Memb loss: 0.000260, lr: 0.001339
-Epoch 82/101, Train Loss: 0.009469, Flow loss: 0.010708, Memb loss: 0.000331, lr: 0.001223
-Epoch 83/101, Train Loss: 0.011386, Flow loss: 0.013830, Memb loss: 0.000270, lr: 0.001110
-Epoch 84/101, Train Loss: 0.008206, Flow loss: 0.012867, Memb loss: 0.000315, lr: 0.001000
-Epoch 85/101, Train Loss: 0.009540, Flow loss: 0.011400, Memb loss: 0.000272, lr: 0.000894
-Epoch 86/101, Train Loss: 0.007855, Flow loss: 0.011252, Memb loss: 0.000226, lr: 0.000793
-Epoch 87/101, Train Loss: 0.009339, Flow loss: 0.014160, Memb loss: 0.000279, lr: 0.000696
-Epoch 88/101, Train Loss: 0.009793, Flow loss: 0.010951, Memb loss: 0.000254, lr: 0.000604
-Epoch 89/101, Train Loss: 0.008698, Flow loss: 0.012802, Memb loss: 0.000256, lr: 0.000518
-Epoch 90/101, Train Loss: 0.010536, Flow loss: 0.011631, Memb loss: 0.000266, lr: 0.000437
-Epoch 91/101, Train Loss: 0.007340, Flow loss: 0.012436, Memb loss: 0.000280, lr: 0.000363
-Epoch 92/101, Train Loss: 0.008326, Flow loss: 0.012199, Memb loss: 0.000239, lr: 0.000294
-Epoch 93/101, Train Loss: 0.012365, Flow loss: 0.011320, Memb loss: 0.000244, lr: 0.000233
-Epoch 94/101, Train Loss: 0.006422, Flow loss: 0.010921, Memb loss: 0.000218, lr: 0.000178
-Epoch 95/101, Train Loss: 0.008373, Flow loss: 0.013722, Memb loss: 0.000274, lr: 0.000130
-Epoch 96/101, Train Loss: 0.008144, Flow loss: 0.012769, Memb loss: 0.000278, lr: 0.000090
-Epoch 97/101, Train Loss: 0.012042, Flow loss: 0.011699, Memb loss: 0.000232, lr: 0.000057
-Epoch 98/101, Train Loss: 0.006232, Flow loss: 0.012260, Memb loss: 0.000227, lr: 0.000031
-Epoch 99/101, Train Loss: 0.012454, Flow loss: 0.012268, Memb loss: 0.000255, lr: 0.000013
-Epoch 100/101, Train Loss: 0.011340, Flow loss: 0.012355, Memb loss: 0.000227, lr: 0.000003
+[0] KS Statistic: 0.0133, P-value: 0.0000
+[rank 0] Distribution shift detected: True
+[1] KS Statistic: 0.0031, P-value: 0.0000
+[rank 1] Distribution shift detected: True
+Epoch 1/200, Train Loss: 0.034109, Flow loss: 0.031685, Memb loss: 0.037745, lr: 0.002000
+Epoch 2/200, Train Loss: 0.009260, Flow loss: 0.012607, Memb loss: 0.004239, lr: 0.002000
+Epoch 3/200, Train Loss: 0.007138, Flow loss: 0.010935, Memb loss: 0.001441, lr: 0.002000
+Freezing membrane head at epoch 4, avg memb loss 7.9893e-04
+Epoch 4/200, Train Loss: 0.006019, Flow loss: 0.009498, Memb loss: 0.000799, lr: 0.002000
+Epoch 5/200, Train Loss: 0.005609, Flow loss: 0.008998, Memb loss: 0.000526, lr: 0.002000
+Epoch 6/200, Train Loss: 0.005608, Flow loss: 0.008995, Memb loss: 0.000526, lr: 0.002000
+Epoch 7/200, Train Loss: 0.006228, Flow loss: 0.010030, Memb loss: 0.000526, lr: 0.002000
+Epoch 8/200, Train Loss: 0.005697, Flow loss: 0.009145, Memb loss: 0.000526, lr: 0.002000
+Epoch 9/200, Train Loss: 0.005508, Flow loss: 0.008830, Memb loss: 0.000526, lr: 0.002000
+Epoch 10/200, Train Loss: 0.005520, Flow loss: 0.008849, Memb loss: 0.000526, lr: 0.002000
+Epoch 10/200, Validation Loss: 0.005469
+Best model saved with validation loss: 0.005469
+Epoch 11/200, Train Loss: 0.005512, Flow loss: 0.008835, Memb loss: 0.000526, lr: 0.002000
+Epoch 12/200, Train Loss: 0.005483, Flow loss: 0.008787, Memb loss: 0.000526, lr: 0.002000
+Epoch 13/200, Train Loss: 0.005262, Flow loss: 0.008419, Memb loss: 0.000526, lr: 0.002000
+Epoch 14/200, Train Loss: 0.005471, Flow loss: 0.008767, Memb loss: 0.000526, lr: 0.002000
+Epoch 15/200, Train Loss: 0.005823, Flow loss: 0.009355, Memb loss: 0.000526, lr: 0.002000
+Epoch 16/200, Train Loss: 0.005941, Flow loss: 0.009551, Memb loss: 0.000526, lr: 0.002000
+Epoch 17/200, Train Loss: 0.006224, Flow loss: 0.010022, Memb loss: 0.000526, lr: 0.002000
+Epoch 18/200, Train Loss: 0.006316, Flow loss: 0.010175, Memb loss: 0.000526, lr: 0.002000
+Epoch 19/200, Train Loss: 0.005982, Flow loss: 0.009619, Memb loss: 0.000526, lr: 0.002000
+Epoch 20/200, Train Loss: 0.005842, Flow loss: 0.009385, Memb loss: 0.000526, lr: 0.002000
+Epoch 20/200, Validation Loss: 0.005554
+Epoch 21/200, Train Loss: 0.005684, Flow loss: 0.009123, Memb loss: 0.000526, lr: 0.002000
+Epoch 22/200, Train Loss: 0.005596, Flow loss: 0.008976, Memb loss: 0.000526, lr: 0.002000
+Epoch 23/200, Train Loss: 0.005496, Flow loss: 0.008808, Memb loss: 0.000526, lr: 0.002000
+Epoch 24/200, Train Loss: 0.005486, Flow loss: 0.008793, Memb loss: 0.000526, lr: 0.002000
+Epoch 25/200, Train Loss: 0.005542, Flow loss: 0.008886, Memb loss: 0.000526, lr: 0.002000
+Epoch 26/200, Train Loss: 0.005581, Flow loss: 0.008950, Memb loss: 0.000526, lr: 0.002000
+Epoch 27/200, Train Loss: 0.005564, Flow loss: 0.008923, Memb loss: 0.000526, lr: 0.002000
+Epoch 28/200, Train Loss: 0.005516, Flow loss: 0.008843, Memb loss: 0.000526, lr: 0.002000
+Epoch 29/200, Train Loss: 0.005527, Flow loss: 0.008861, Memb loss: 0.000526, lr: 0.002000
+Epoch 30/200, Train Loss: 0.005722, Flow loss: 0.009186, Memb loss: 0.000526, lr: 0.002000
+Epoch 30/200, Validation Loss: 0.005368
+Best model saved with validation loss: 0.005368
+Epoch 31/200, Train Loss: 0.005581, Flow loss: 0.008951, Memb loss: 0.000526, lr: 0.002000
+Epoch 32/200, Train Loss: 0.005446, Flow loss: 0.008726, Memb loss: 0.000526, lr: 0.002000
+Epoch 33/200, Train Loss: 0.005836, Flow loss: 0.009375, Memb loss: 0.000526, lr: 0.002000
+Epoch 34/200, Train Loss: 0.005682, Flow loss: 0.009119, Memb loss: 0.000526, lr: 0.002000
+Epoch 35/200, Train Loss: 0.005513, Flow loss: 0.008838, Memb loss: 0.000526, lr: 0.002000
+Epoch 36/200, Train Loss: 0.005495, Flow loss: 0.008808, Memb loss: 0.000526, lr: 0.002000
+Epoch 37/200, Train Loss: 0.005423, Flow loss: 0.008688, Memb loss: 0.000526, lr: 0.002000
+Epoch 38/200, Train Loss: 0.005584, Flow loss: 0.008956, Memb loss: 0.000526, lr: 0.002000
+Epoch 39/200, Train Loss: 0.005702, Flow loss: 0.009153, Memb loss: 0.000526, lr: 0.002000
+Epoch 40/200, Train Loss: 0.005772, Flow loss: 0.009268, Memb loss: 0.000526, lr: 0.002000
+Epoch 40/200, Validation Loss: 0.005594
+Epoch 41/200, Train Loss: 0.007958, Flow loss: 0.012913, Memb loss: 0.000526, lr: 0.002000
+Epoch 42/200, Train Loss: 0.007010, Flow loss: 0.011332, Memb loss: 0.000526, lr: 0.002000
+Epoch 43/200, Train Loss: 0.007032, Flow loss: 0.011369, Memb loss: 0.000526, lr: 0.002000
+Epoch 44/200, Train Loss: 0.007387, Flow loss: 0.011960, Memb loss: 0.000526, lr: 0.002000
+Epoch 45/200, Train Loss: 0.007044, Flow loss: 0.011390, Memb loss: 0.000526, lr: 0.002000
+Epoch 46/200, Train Loss: 0.007120, Flow loss: 0.011516, Memb loss: 0.000526, lr: 0.002000
+Epoch 47/200, Train Loss: 0.007040, Flow loss: 0.011382, Memb loss: 0.000526, lr: 0.002000
+Epoch 48/200, Train Loss: 0.006819, Flow loss: 0.011015, Memb loss: 0.000526, lr: 0.002000
+Epoch 49/200, Train Loss: 0.007485, Flow loss: 0.012124, Memb loss: 0.000526, lr: 0.002000
+Epoch 50/200, Train Loss: 0.009207, Flow loss: 0.014994, Memb loss: 0.000526, lr: 0.002000
+Epoch 50/200, Validation Loss: 0.011785
+Epoch 51/200, Train Loss: 0.008497, Flow loss: 0.013811, Memb loss: 0.000526, lr: 0.002000
+Epoch 52/200, Train Loss: 0.007476, Flow loss: 0.012110, Memb loss: 0.000526, lr: 0.002000
+Epoch 53/200, Train Loss: 0.007658, Flow loss: 0.012412, Memb loss: 0.000526, lr: 0.002000
+Epoch 54/200, Train Loss: 0.007404, Flow loss: 0.011990, Memb loss: 0.000526, lr: 0.002000
+Epoch 55/200, Train Loss: 0.006922, Flow loss: 0.011186, Memb loss: 0.000526, lr: 0.002000
+Epoch 56/200, Train Loss: 0.007190, Flow loss: 0.011633, Memb loss: 0.000526, lr: 0.002000
+Epoch 57/200, Train Loss: 0.007050, Flow loss: 0.011399, Memb loss: 0.000526, lr: 0.002000
+Epoch 58/200, Train Loss: 0.007508, Flow loss: 0.012162, Memb loss: 0.000526, lr: 0.002000
+Epoch 59/200, Train Loss: 0.007433, Flow loss: 0.012038, Memb loss: 0.000526, lr: 0.002000
+Epoch 60/200, Train Loss: 0.007135, Flow loss: 0.011541, Memb loss: 0.000526, lr: 0.002000
+Epoch 60/200, Validation Loss: 0.006860
+Epoch 61/200, Train Loss: 0.007134, Flow loss: 0.011539, Memb loss: 0.000526, lr: 0.002000
+Epoch 62/200, Train Loss: 0.007151, Flow loss: 0.011567, Memb loss: 0.000526, lr: 0.002000
+Epoch 63/200, Train Loss: 0.007584, Flow loss: 0.012289, Memb loss: 0.000526, lr: 0.002000
+Epoch 64/200, Train Loss: 0.008003, Flow loss: 0.012988, Memb loss: 0.000526, lr: 0.002000
+Epoch 65/200, Train Loss: 0.007005, Flow loss: 0.011324, Memb loss: 0.000526, lr: 0.002000
+Epoch 66/200, Train Loss: 0.008338, Flow loss: 0.013546, Memb loss: 0.000526, lr: 0.002000
+Epoch 67/200, Train Loss: 0.006947, Flow loss: 0.011228, Memb loss: 0.000526, lr: 0.002000
+Epoch 68/200, Train Loss: 0.007230, Flow loss: 0.011698, Memb loss: 0.000526, lr: 0.002000
+Epoch 69/200, Train Loss: 0.007607, Flow loss: 0.012327, Memb loss: 0.000526, lr: 0.002000
+Epoch 70/200, Train Loss: 0.008047, Flow loss: 0.013060, Memb loss: 0.000526, lr: 0.002000
+Epoch 70/200, Validation Loss: 0.006611
+Epoch 71/200, Train Loss: 0.007651, Flow loss: 0.012401, Memb loss: 0.000526, lr: 0.002000
+Epoch 72/200, Train Loss: 0.007923, Flow loss: 0.012854, Memb loss: 0.000526, lr: 0.002000
+Epoch 73/200, Train Loss: 0.007327, Flow loss: 0.011861, Memb loss: 0.000526, lr: 0.002000
+Epoch 74/200, Train Loss: 0.007596, Flow loss: 0.012310, Memb loss: 0.000526, lr: 0.002000
+Epoch 75/200, Train Loss: 0.007759, Flow loss: 0.012580, Memb loss: 0.000526, lr: 0.002000
+Epoch 76/200, Train Loss: 0.007745, Flow loss: 0.012557, Memb loss: 0.000526, lr: 0.002000
+Epoch 77/200, Train Loss: 0.009095, Flow loss: 0.014807, Memb loss: 0.000526, lr: 0.002000
+Epoch 78/200, Train Loss: 0.007581, Flow loss: 0.012285, Memb loss: 0.000526, lr: 0.002000
+Epoch 79/200, Train Loss: 0.008280, Flow loss: 0.013448, Memb loss: 0.000526, lr: 0.002000
+Epoch 80/200, Train Loss: 0.009186, Flow loss: 0.014959, Memb loss: 0.000526, lr: 0.002000
+Epoch 80/200, Validation Loss: 0.006425
+Epoch 81/200, Train Loss: 0.009617, Flow loss: 0.015678, Memb loss: 0.000526, lr: 0.002000
+Epoch 82/200, Train Loss: 0.009286, Flow loss: 0.015126, Memb loss: 0.000526, lr: 0.002000
+Epoch 83/200, Train Loss: 0.009204, Flow loss: 0.014990, Memb loss: 0.000526, lr: 0.002000
+Epoch 84/200, Train Loss: 0.009412, Flow loss: 0.015337, Memb loss: 0.000526, lr: 0.002000
+Epoch 85/200, Train Loss: 0.012106, Flow loss: 0.019826, Memb loss: 0.000526, lr: 0.002000
+Epoch 86/200, Train Loss: 0.009639, Flow loss: 0.015714, Memb loss: 0.000526, lr: 0.002000
+Epoch 87/200, Train Loss: 0.011363, Flow loss: 0.018587, Memb loss: 0.000526, lr: 0.002000
+Epoch 88/200, Train Loss: 0.009783, Flow loss: 0.015954, Memb loss: 0.000526, lr: 0.002000
+Epoch 89/200, Train Loss: 0.009040, Flow loss: 0.014716, Memb loss: 0.000526, lr: 0.002000
+Epoch 90/200, Train Loss: 0.009352, Flow loss: 0.015236, Memb loss: 0.000526, lr: 0.002000
+Epoch 90/200, Validation Loss: 0.006978
+Epoch 91/200, Train Loss: 0.009832, Flow loss: 0.016035, Memb loss: 0.000526, lr: 0.002000
+Epoch 92/200, Train Loss: 0.008520, Flow loss: 0.013849, Memb loss: 0.000526, lr: 0.002000
+Epoch 93/200, Train Loss: 0.010060, Flow loss: 0.016416, Memb loss: 0.000526, lr: 0.002000
+Epoch 94/200, Train Loss: 0.009511, Flow loss: 0.015501, Memb loss: 0.000526, lr: 0.002000
+Epoch 95/200, Train Loss: 0.009360, Flow loss: 0.015250, Memb loss: 0.000526, lr: 0.002000
+Epoch 96/200, Train Loss: 0.008774, Flow loss: 0.014272, Memb loss: 0.000526, lr: 0.002000
+Epoch 97/200, Train Loss: 0.010662, Flow loss: 0.017419, Memb loss: 0.000526, lr: 0.002000
+Epoch 98/200, Train Loss: 0.009189, Flow loss: 0.014963, Memb loss: 0.000526, lr: 0.002000
+Epoch 99/200, Train Loss: 0.010078, Flow loss: 0.016446, Memb loss: 0.000526, lr: 0.002000
+Epoch 100/200, Train Loss: 0.012264, Flow loss: 0.020089, Memb loss: 0.000526, lr: 0.002000
 Model saved at epoch 100
-Epoch 100/101, Validation Loss: 0.012395
-Best model saved with validation loss: 0.012395
-Epoch 101/101, Train Loss: 0.012963, Flow loss: 0.012490, Memb loss: 0.000243, lr: 0.000000
+Epoch 100/200, Validation Loss: 0.013257
+Epoch 101/200, Train Loss: 0.008929, Flow loss: 0.014531, Memb loss: 0.000526, lr: 0.002000
+Epoch 102/200, Train Loss: 0.011696, Flow loss: 0.019142, Memb loss: 0.000526, lr: 0.002000
+Epoch 103/200, Train Loss: 0.010171, Flow loss: 0.016600, Memb loss: 0.000526, lr: 0.002000
+Epoch 104/200, Train Loss: 0.010355, Flow loss: 0.016907, Memb loss: 0.000526, lr: 0.002000
+Epoch 105/200, Train Loss: 0.008966, Flow loss: 0.014592, Memb loss: 0.000526, lr: 0.002000
+Epoch 106/200, Train Loss: 0.010108, Flow loss: 0.016496, Memb loss: 0.000526, lr: 0.002000
+Epoch 107/200, Train Loss: 0.010649, Flow loss: 0.017397, Memb loss: 0.000526, lr: 0.002000
+Epoch 108/200, Train Loss: 0.009768, Flow loss: 0.015929, Memb loss: 0.000526, lr: 0.002000
+Epoch 109/200, Train Loss: 0.009422, Flow loss: 0.015353, Memb loss: 0.000526, lr: 0.002000
+Epoch 110/200, Train Loss: 0.011508, Flow loss: 0.018829, Memb loss: 0.000526, lr: 0.002000
+Epoch 110/200, Validation Loss: 0.007304
+Epoch 111/200, Train Loss: 0.013776, Flow loss: 0.022609, Memb loss: 0.000526, lr: 0.002000
+Epoch 112/200, Train Loss: 0.008547, Flow loss: 0.013895, Memb loss: 0.000526, lr: 0.002000
+Epoch 113/200, Train Loss: 0.009574, Flow loss: 0.015606, Memb loss: 0.000526, lr: 0.002000
+Epoch 114/200, Train Loss: 0.009277, Flow loss: 0.015110, Memb loss: 0.000526, lr: 0.002000
+Epoch 115/200, Train Loss: 0.011518, Flow loss: 0.018845, Memb loss: 0.000526, lr: 0.002000
+Epoch 116/200, Train Loss: 0.009530, Flow loss: 0.015532, Memb loss: 0.000526, lr: 0.002000
+Epoch 117/200, Train Loss: 0.011640, Flow loss: 0.019049, Memb loss: 0.000526, lr: 0.002000
+Epoch 118/200, Train Loss: 0.009917, Flow loss: 0.016177, Memb loss: 0.000526, lr: 0.002000
+Epoch 119/200, Train Loss: 0.009154, Flow loss: 0.014906, Memb loss: 0.000526, lr: 0.002000
+Epoch 120/200, Train Loss: 0.012793, Flow loss: 0.020970, Memb loss: 0.000526, lr: 0.002000
+Epoch 120/200, Validation Loss: 0.018355
+Epoch 121/200, Train Loss: 0.012217, Flow loss: 0.020011, Memb loss: 0.000526, lr: 0.002000
+Epoch 122/200, Train Loss: 0.011460, Flow loss: 0.018749, Memb loss: 0.000526, lr: 0.002000
+Epoch 123/200, Train Loss: 0.011723, Flow loss: 0.019188, Memb loss: 0.000526, lr: 0.002000
+Epoch 124/200, Train Loss: 0.010749, Flow loss: 0.017564, Memb loss: 0.000526, lr: 0.002000
+Epoch 125/200, Train Loss: 0.012043, Flow loss: 0.019722, Memb loss: 0.000526, lr: 0.002000
+Epoch 126/200, Train Loss: 0.012465, Flow loss: 0.020424, Memb loss: 0.000526, lr: 0.002000
+Epoch 127/200, Train Loss: 0.010411, Flow loss: 0.017001, Memb loss: 0.000526, lr: 0.002000
+Epoch 128/200, Train Loss: 0.009761, Flow loss: 0.015918, Memb loss: 0.000526, lr: 0.002000
+Epoch 129/200, Train Loss: 0.010307, Flow loss: 0.016828, Memb loss: 0.000526, lr: 0.002000
+Epoch 130/200, Train Loss: 0.009290, Flow loss: 0.015132, Memb loss: 0.000526, lr: 0.002000
+Epoch 130/200, Validation Loss: 0.005551
+Epoch 131/200, Train Loss: 0.012504, Flow loss: 0.020489, Memb loss: 0.000526, lr: 0.002000
+Epoch 132/200, Train Loss: 0.012678, Flow loss: 0.020779, Memb loss: 0.000526, lr: 0.002000
+Epoch 133/200, Train Loss: 0.015749, Flow loss: 0.025897, Memb loss: 0.000526, lr: 0.002000
+Epoch 134/200, Train Loss: 0.012030, Flow loss: 0.019699, Memb loss: 0.000526, lr: 0.002000
+Epoch 135/200, Train Loss: 0.009851, Flow loss: 0.016067, Memb loss: 0.000526, lr: 0.002000
+Epoch 136/200, Train Loss: 0.012553, Flow loss: 0.020570, Memb loss: 0.000526, lr: 0.002000
+Epoch 137/200, Train Loss: 0.012269, Flow loss: 0.020097, Memb loss: 0.000526, lr: 0.002000
+Epoch 138/200, Train Loss: 0.011178, Flow loss: 0.018279, Memb loss: 0.000526, lr: 0.002000
+Epoch 139/200, Train Loss: 0.011476, Flow loss: 0.018776, Memb loss: 0.000526, lr: 0.002000
+Epoch 140/200, Train Loss: 0.011254, Flow loss: 0.018405, Memb loss: 0.000526, lr: 0.002000
+Epoch 140/200, Validation Loss: 0.011206
+Epoch 141/200, Train Loss: 0.007291, Flow loss: 0.011800, Memb loss: 0.000526, lr: 0.001000
+Epoch 142/200, Train Loss: 0.006770, Flow loss: 0.010933, Memb loss: 0.000526, lr: 0.001000
+Epoch 143/200, Train Loss: 0.007055, Flow loss: 0.011407, Memb loss: 0.000526, lr: 0.001000
+Epoch 144/200, Train Loss: 0.008016, Flow loss: 0.013009, Memb loss: 0.000526, lr: 0.001000
+Epoch 145/200, Train Loss: 0.007170, Flow loss: 0.011599, Memb loss: 0.000526, lr: 0.001000
+Epoch 146/200, Train Loss: 0.007554, Flow loss: 0.012240, Memb loss: 0.000526, lr: 0.001000
+Epoch 147/200, Train Loss: 0.007280, Flow loss: 0.011782, Memb loss: 0.000526, lr: 0.001000
+Epoch 148/200, Train Loss: 0.006844, Flow loss: 0.011056, Memb loss: 0.000526, lr: 0.001000
+Epoch 149/200, Train Loss: 0.007409, Flow loss: 0.011998, Memb loss: 0.000526, lr: 0.001000
+Epoch 150/200, Train Loss: 0.007192, Flow loss: 0.011635, Memb loss: 0.000526, lr: 0.001000
+Epoch 150/200, Validation Loss: 0.005315
+Best model saved with validation loss: 0.005315
+Epoch 151/200, Train Loss: 0.006808, Flow loss: 0.010995, Memb loss: 0.000526, lr: 0.001000
+Epoch 152/200, Train Loss: 0.006661, Flow loss: 0.010751, Memb loss: 0.000526, lr: 0.001000
+Epoch 153/200, Train Loss: 0.007339, Flow loss: 0.011880, Memb loss: 0.000526, lr: 0.001000
+Epoch 154/200, Train Loss: 0.006917, Flow loss: 0.011177, Memb loss: 0.000526, lr: 0.001000
+Epoch 155/200, Train Loss: 0.007140, Flow loss: 0.011549, Memb loss: 0.000526, lr: 0.001000
+Epoch 156/200, Train Loss: 0.007548, Flow loss: 0.012228, Memb loss: 0.000526, lr: 0.001000
+Epoch 157/200, Train Loss: 0.007902, Flow loss: 0.012820, Memb loss: 0.000526, lr: 0.001000
+Epoch 158/200, Train Loss: 0.007168, Flow loss: 0.011596, Memb loss: 0.000526, lr: 0.001000
+Epoch 159/200, Train Loss: 0.007261, Flow loss: 0.011751, Memb loss: 0.000526, lr: 0.001000
+Epoch 160/200, Train Loss: 0.007292, Flow loss: 0.011803, Memb loss: 0.000526, lr: 0.001000

@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH -A rmittal3-condo
+#SBATCH --job-name=DataGen # Job name
+#SBATCH --time=30:00:00   # Total time
+#SBATCH --partition=parallel    # Choose partition
+#SBATCH --ntasks=96  # Total number of processes
+#SBATCH --nodes=2
+#SBATCH --mem=180G
+#SBATCH --mail-type=all   # Email condition
+#SBATCH --mail-user=skumar94@jhu.edu    # Email address
+
+module load anaconda3
+
+conda activate /home/skumar94/.conda/envs/myenv/
+
+python data/generate_cache_data.py > ./logs/log_datagen.dat

@@ -73,7 +73,7 @@ class generateDatasetMembrane:
     return
   
   def get_bc_node_info(self):
-    nodeIDs = np.genfromtxt(self.folder+"dirichlet_bc_nodes.csv", skip_header=1)
+    nodeIDs = np.genfromtxt(self.folder+"../../"+"dirichlet_bc_nodes.csv", skip_header=1)
     return nodeIDs
   
   def compileData(self):

@@ -11,7 +11,7 @@ def get_timestep_embedding(t, d, structure):
 	# embeddings
 	# sin(2 \pi (1/10^(i/d)) t)
 	# cos(2 \pi (1/10^(i/d)) t)
-	t = t.view(-1,1)
+	t = t.view(-1,1).to(device)
 	scales = torch.arange(0, d//2).to(device)
 	freqs = 10**(scales/(d//2))
 
@@ -28,13 +28,25 @@ def get_timestep_embedding(t, d, structure):
 class time_conditioning(nn.Module):
 	def __init__(self, hidden_dim):
 		super(time_conditioning, self).__init__()
-		self.gamma = nn.Sequential(nn.Linear(1, hidden_dim), nn.SiLU(), nn.Linear(hidden_dim, hidden_dim), nn.SiLU())
-		self.lambda_ = nn.Sequential(nn.Linear(1, hidden_dim), nn.SiLU(), nn.Linear(hidden_dim, hidden_dim), nn.SiLU())
+
+		self.gamma = nn.Sequential(nn.Linear(1, hidden_dim), nn.SiLU(), 
+														   nn.Linear(hidden_dim, hidden_dim), nn.SiLU(),
+            									 nn.Linear(hidden_dim, hidden_dim), nn.SiLU()
+															 )
+		
+		self.gamma_residual = nn.Linear(1, hidden_dim)
+
+		self.lambda_ = nn.Sequential(nn.Linear(1, hidden_dim), nn.SiLU(), 
+															   nn.Linear(hidden_dim, hidden_dim), nn.SiLU(),
+            										 nn.Linear(hidden_dim, hidden_dim), nn.SiLU()
+																 )
+		
+		self.lambda_residual = nn.Linear(1, hidden_dim)
 
 	def forward(self, x, tau):
 		x = F.layer_norm(x, x.shape[1:]) #1: because layer_norm requires tu[]:plesof int and not int.
-		gamma_tau = self.gamma(tau.view(-1, 1))
-		lambda_tau = self.lambda_(tau.view(-1, 1))
+		gamma_tau = self.gamma(tau.view(-1, 1)) + self.gamma_residual(tau.view(-1, 1))
+		lambda_tau = self.lambda_(tau.view(-1, 1)) + self.lambda_residual(tau.view(-1, 1))
 		x = (1 + tau * gamma_tau) * x + tau * lambda_tau	
 		#Process - Scale							= shift
 

@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH -A rmittal3_gpu
-#SBATCH --job-name=NeuralOpt_FSI 
-#SBATCH --time=01:00:00   
-#SBATCH --partition=l40s 
+#SBATCH --job-name=NeuralOpt_FSI  
+#SBATCH --time=06:00:00   
+#SBATCH --partition=l40s
 #SBATCH --nodes=1  
 #SBATCH --cpus-per-task=16    # Request 16 CPUs per task
-#SBATCH --mem=128G
-#SBATCH --gres=gpu:4
+#SBATCH --mem=256G
+#SBATCH --gres=gpu:2
 #SBATCH --mail-type=all         # Email condition
 #SBATCH --mail-user=skumar94@jhu.edu # Email address
 
@@ -20,14 +20,20 @@ echo "MASTER_ADDR:MASTER_PORT="${MASTER_ADDR}:${MASTER_PORT}
 export TORCH_DISTRIBUTED_DEBUG=DETAIL
 
 # Load necessary modules
-module load cuda
-module load anaconda
+# module load cuda
+# module load anaconda #this gives issue
 
-nvidia-smi
+# nvidia-smi
 
-# Activate your conda environment
+# # Activate your conda environment
+# conda activate /home/skumar94/.conda/envs/myenv/
+
+module load anaconda3
+
 conda activate /home/skumar94/.conda/envs/myenv/
 
 # Run your Python script using torchrun
-srun torchrun --nproc_per_node=4 src/training/coupledGNO_distributedTraining.py > ./logs/log.dat
+srun torchrun --nproc_per_node=2 src/training/coupledGNO_distributedTraining.py > ./logs/log.dat
+# nsys profile -t cuda,nvtx,cudnn,cublas --stats=true --force-overwrite=true -o myprofile srun torchrun --nproc_per_node=1 src/training/coupledGNO_distributedTraining.py > ./logs/log.dat
+# nsys profile -t cuda,nvtx,cudnn,cublas --stats=true --force-overwrite=true -o myprofile python src/training/coupledFSI_gno.py > ./logs/log.dat
 # python src/training/coupledFSI_gno.py > ./logs/log.dat

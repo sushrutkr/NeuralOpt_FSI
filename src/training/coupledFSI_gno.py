@@ -54,7 +54,7 @@ def main(checkpoint_path=None):
 	}
 	
 	params_training = {
-		'epochs' 								: 100,
+		'epochs' 								: 10,
 		'learning_rate' 				: 0.001 ,
 		'scheduler_step' 				: 500,  
 		'scheduler_gamma' 			: 0.5,
@@ -64,7 +64,7 @@ def main(checkpoint_path=None):
 
 	params_data = {
 		'batch_size' 		: 3,
-		'ntsteps' 			: 1, #extra from current one
+		'ntsteps' 			: 2, #extra from current one
 		'val_split'			: 0.3
 	}
 
@@ -81,7 +81,7 @@ def main(checkpoint_path=None):
 																				params_data['batch_size'],
 																				params_data['ntsteps'],
 																				params_data['val_split'],
-																				loadData = False,
+																				loadData = True,
 																				cache_file="/home/skumar94/scr16_rmittal3/skumar94/GNO_FSI/TrainingData/data_train_cache.pt")
 	
 
@@ -154,12 +154,14 @@ def main(checkpoint_path=None):
 
 			#Freezing membrane model after reaching a the
 			if (loss_memb.item()<freeze_threshold) and (not memb_frozen):
-				for p in model_instance.module.encoder["memb"].parameters():
+				print(f"Freezing membrane head at epoch {epoch}, batch loss {loss_memb:.4e}")
+				# for p in model_instance.module.encoder["memb"].parameters(): !use module when using DDP
+				for p in model_instance.encoder["memb"].parameters(): 
 					p.requires_grad = False
-				for p in model_instance.module.decoder["memb"].parameters():
+				for p in model_instance.decoder["memb"].parameters():
 					p.requires_grad = False
 				memb_frozen = True
-				print(f"Frozen membrane head at epoch {epoch}")  			
+							
 
 			train_loss += loss.item()
 			flow_loss_batch += loss_flow.item()
