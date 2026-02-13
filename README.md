@@ -21,3 +21,9 @@ This repository contains the implementation of a coupled Fluid-Structure Interac
    conda env create -f ./utils/NeuralFSIEnv.yml
 3. Run model of distributed cluster
     sbatch job
+
+## Model Visual Overview
+
+### Contour Plot 1
+
+![model](Model_overview.png)
