@@ -15,7 +15,7 @@ This repository contains the implementation of a coupled Fluid-Structure Interac
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/coupled-training.git
+   git clone https://github.com/sushrutkr/aetheron.git
    cd NeuralOpt_FSI/
 2. Setup Environment
    conda env create -f ./utils/NeuralFSIEnv.yml
