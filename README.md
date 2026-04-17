@@ -42,7 +42,6 @@ Processor: L = 10 heterogeneous message-passing layers
            intra-domain GNO + cross-domain sparse attention (d_A = 32)
            time-conditioning via LayerNorm scale-shift
 Decoder  : Euler update  x_f(t+tau) = x_f(t) + tau * psi(xi_f)
-Params   : ~0.6M
 ```
 
 ---
